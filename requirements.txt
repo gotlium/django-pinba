@@ -1,0 +1,2 @@
+iscool_e.pynba
+django

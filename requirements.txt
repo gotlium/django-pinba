@@ -1,2 +1,2 @@
-iscool_e.pynba
+iscool_e.pynba>=0.3.5
 django

@@ -68,5 +68,5 @@ class Monitor(object):
             ru_stime=self.ru_stime,
             elapsed=self.elapsed,
             timers=[],
-            #status=self.status,
+            status=self.status,
         )

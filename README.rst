@@ -32,3 +32,9 @@ Credits
 
 .. _Pinba: http://pinba.org
 .. _pynba: https://pypi.python.org/pypi/iscool_e.pynba
+
+
+.. image:: https://d2weczhvl823v0.cloudfront.net/gotlium/django-pinba/trend.png
+   :alt: Bitdeli badge
+   :target: https://bitdeli.com/free
+

@@ -5,16 +5,23 @@ What's that
 -----------
 App for collect Django statistics into PinbaEngine.
 
-Installation:
--------------
-1. Package:
+
+Publications
+-----------
+* `Completely installation and usage on production <http://habrahabr.ru/post/200128/>`_.
+
+
+Quick installation
+------------------
+1. Using pip:
 
 .. code-block:: bash
 
     $  sudo pip install django-pinba
 
-2. Add the ``pinba.middleware.PinbaMiddleware`` application
-    to ``MIDDLEWARE_CLASSES`` in your settings
+
+2. Add ``pinba.middleware.PinbaMiddleware`` middleware to ``MIDDLEWARE_CLASSES`` on your settings
+
 3. Add pinba-engine server configuration:
 
 .. code-block:: python
@@ -32,3 +39,8 @@ Credits
 
 .. _Pinba: http://pinba.org
 .. _pynba: https://pypi.python.org/pypi/iscool_e.pynba
+
+
+.. image:: https://d2weczhvl823v0.cloudfront.net/gotlium/django-pinba/trend.png
+    :alt: Bitdeli badge
+    :target: https://bitdeli.com/free

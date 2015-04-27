@@ -59,14 +59,17 @@ class Monitor(object):
 
     def _send(self):
         self.reporter(
+            self.server_name,
+            self.hostname,
+            self.script_name,
+            self.elapsed,
+            [],
             document_size=self.document_size,
             memory_peak=self.memory_peak,
-            servername=self.server_name,
-            scriptname=self.script_name,
-            hostname=self.hostname,
             ru_utime=self.ru_utime,
             ru_stime=self.ru_stime,
-            elapsed=self.elapsed,
-            timers=[],
             status=self.status,
+            # memory_footprint=None,
+            # schema=self.request.scheme,
+            # tags=None
         )

@@ -13,8 +13,7 @@ setup(
     packages=find_packages(exclude=['demo']),
     include_package_data=True,
     install_requires=[
-        'iscool_e.pynba>=0.3.5',
-        'django'
+        'iscool_e.pynba==0.4.3'
     ],
     zip_safe=False,
     classifiers=[

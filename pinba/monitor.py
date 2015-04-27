@@ -6,7 +6,7 @@ import time
 
 from django.core.urlresolvers import resolve
 
-from iscool_e.pynba.reporter import Reporter
+from pinba.reporter import Reporter
 
 
 class Monitor(object):
@@ -57,19 +57,22 @@ class Monitor(object):
         except:
             return self.request.path
 
+    def _get_scheme(self):
+        if hasattr(self.request, 'scheme'):
+            return self.request.scheme
+        return 'http'
+
     def _send(self):
         self.reporter(
             self.server_name,
             self.hostname,
             self.script_name,
             self.elapsed,
-            [],
             document_size=self.document_size,
             memory_peak=self.memory_peak,
             ru_utime=self.ru_utime,
             ru_stime=self.ru_stime,
             status=self.status,
-            # memory_footprint=None,
-            # schema=self.request.scheme,
-            # tags=None
+            schema=self._get_scheme(),
+            # memory_footprint=self.memory_peak,
         )

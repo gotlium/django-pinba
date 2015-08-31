@@ -17,7 +17,7 @@ Quick installation
 
 .. code-block:: bash
 
-    $  sudo pip install django-pinba
+    $  pip install django-pinba
 
 
 2. Add ``pinba.middleware.PinbaMiddleware`` middleware to ``MIDDLEWARE_CLASSES`` on your settings
@@ -29,16 +29,19 @@ Quick installation
     PINBA_SERVER = '192.168.55.11'
     PINBA_PORT = 30002
     PINBA_ENABLED = True
+    PINBA_DISABLE_ADMIN = True
 
 
 Credits
 -------
 
-- Pinba_
-- pynba_
+- PinbaEngine_
+- Pynba_
+- PinBoard_
 
-.. _Pinba: http://pinba.org
-.. _pynba: https://pypi.python.org/pypi/iscool_e.pynba
+.. _PinbaEngine: http://pinba.org
+.. _Pynba: https://github.com/IsCoolEntertainment/pynba
+.. _PinBoard: https://github.com/intaro/pinboard
 
 
 .. image:: https://d2weczhvl823v0.cloudfront.net/gotlium/django-pinba/trend.png

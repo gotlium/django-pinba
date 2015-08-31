@@ -121,7 +121,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -161,3 +161,4 @@ LOGGING = {
 PINBA_SERVER = '192.168.55.11'
 PINBA_PORT = 30002
 PINBA_ENABLED = True
+PINBA_DISABLE_ADMIN = True

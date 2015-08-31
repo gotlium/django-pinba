@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-pinba',
-    version="1.2.0",
+    version="1.2.1",
     description='django pinba',
     keywords="django pinba",
     long_description=open('README.rst').read(),

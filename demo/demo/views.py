@@ -1,11 +1,25 @@
 # -*- coding: utf-8 -*-
 
-from django.http import HttpResponse
 from random import choice
-from django.contrib.auth.models import User
+
+from functools import wraps
+
+from django.http import HttpResponse
+
+
+def dec_wraps(func):
+    @wraps(func)
+    def tmp(request, *args, **kwargs):
+        return func(request, *args, **kwargs)
+
+    return tmp
 
 
 def home(request):
     range(choice(range(10000000)))
-    User.objects.get(pk=1)
+    return HttpResponse('OK')
+
+
+@dec_wraps
+def dec(request):
     return HttpResponse('OK')

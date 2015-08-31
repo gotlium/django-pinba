@@ -7,6 +7,7 @@ import time
 from django.core.urlresolvers import resolve
 
 from pinba.reporter import Reporter
+from pinba import defaults
 
 
 class Monitor(object):
@@ -27,6 +28,11 @@ class Monitor(object):
         self.usage = None
         self.status = 200
 
+    def get_server_name(self):
+        if defaults.PINBA_SERVER_NAME is not None:
+            return defaults.PINBA_SERVER_NAME
+        return self.request.META.get('SERVER_NAME')
+
     def start(self, request):
         self.resources = resource.getrusage(resource.RUSAGE_SELF)
         self.start_time = time.time()
@@ -44,7 +50,7 @@ class Monitor(object):
     def _calculate(self):
         self.ru_utime = self.usage.ru_utime - self.resources.ru_utime
         self.ru_stime = self.usage.ru_stime - self.resources.ru_stime
-        self.server_name = self.request.META.get('SERVER_NAME')
+        self.server_name = self.get_server_name()
         self.document_size = len(self.response.content)
         self.script_name = self._get_script_name()
         self.memory_peak = self.usage.ru_maxrss

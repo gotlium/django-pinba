@@ -3,11 +3,15 @@
 import resource
 import socket
 import time
+import os
 
 from django.core.urlresolvers import resolve
 
-from pinba.reporter import Reporter
+from pynba.core.reporter import Reporter
 from pinba import defaults
+
+
+now = time.clock if os.name == 'nt' else time.time
 
 
 class Monitor(object):
@@ -35,12 +39,12 @@ class Monitor(object):
 
     def start(self, request):
         self.resources = resource.getrusage(resource.RUSAGE_SELF)
-        self.start_time = time.time()
+        self.start_time = now()
         self.request = request
 
     def stop(self, response):
         self.usage = resource.getrusage(resource.RUSAGE_SELF)
-        self.elapsed = (time.time() - self.start_time)
+        self.elapsed = (now() - self.start_time)
         self.response = response
 
         self._calculate()
@@ -74,6 +78,7 @@ class Monitor(object):
             self.hostname,
             self.script_name,
             self.elapsed,
+            timers=None,
             document_size=self.document_size,
             memory_peak=self.memory_peak,
             ru_utime=self.ru_utime,

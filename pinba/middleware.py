@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import traceback
+
 from pinba.defaults import (
     PINBA_SERVER, PINBA_PORT, PINBA_ENABLED, PINBA_DISABLE_ADMIN
 )
@@ -23,10 +25,16 @@ class PinbaMiddleware(object):
         return True
 
     def process_request(self, request):
-        if self.report_is_enabled(request):
-            self.monitor.start(request)
+        try:
+            if self.report_is_enabled(request):
+                self.monitor.start(request)
+        except Exception as err:
+            print(err, traceback.format_exc())
 
     def process_response(self, request, response):
-        if self.report_is_enabled(request):
-            return self.monitor.stop(response)
+        try:
+            if self.report_is_enabled(request):
+                return self.monitor.stop(response)
+        except Exception as err:
+            print(err, traceback.format_exc())
         return response

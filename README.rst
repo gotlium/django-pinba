@@ -32,6 +32,28 @@ Quick installation
     PINBA_DISABLE_ADMIN = True
 
 
+Timers
+------
+.. code-block:: python
+
+    from time import sleep
+    from pinba.timers import get_monitor
+
+    monitor = get_monitor()
+    timer = monitor.timer(foo='bar')
+    timer.start()
+    sleep(0.5)
+    timer.stop()
+    monitor.send()
+
+
+Requirements
+------------
+* PinbaEngine==1.1.0
+* PinBoard==1.5.2
+* pynba==0.5.4
+
+
 Credits
 -------
 
@@ -40,7 +62,7 @@ Credits
 - PinBoard_
 
 .. _PinbaEngine: http://pinba.org
-.. _Pynba: https://github.com/IsCoolEntertainment/pynba
+.. _Pynba: https://github.com/johnnoone/pynba
 .. _PinBoard: https://github.com/intaro/pinboard
 
 
